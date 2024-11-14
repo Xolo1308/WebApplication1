@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Thêm sản phẩm </h1>
+                    <h1>Thêm SP</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -31,90 +31,94 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Thêm Sản phẩm</h3>
+                            <h3 class="card-title">Thêm SP</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form asp-action="Create">
                             <div class="card-body">
-                                <div asp-validation-summary="ModelOnly class=" text-danger></div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <label asp-for="Title" class="control-laber">Tiêu đề </label>
+                                    <label asp-for="Title" class="control-lable">Tiêu đề</label>
                                     <input asp-for="Title" class="form-control" />
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Alias" class="control-laber">Alias</label>
+                                    <label asp-for="Alias" class="control-lable"></label>
                                     <input asp-for="Alias" class="form-control" />
                                     <span asp-validation-for="Alias" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="CategoryId" class="control-laber">Danh mục</label>
-                                    <input asp-for="CategoryId" class="form-control" />
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                    <label asp-for="CategoryProductId" class="control-lable">Danh mục </label>
+                                    <select asp-for="CategoryProductId" class="form-control" asp-items="ViewBag.CategoryProductId">
+                                        <option value="0" selected>--[Chọn danh mục]--</option>
+                                     </select>
+                                </div> 
+                                <div class=form-group>
+                                    <label asp-for="Image" class="control-label">Anh</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
+                                            
+                                        </div>
+                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button" />
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label asp-for="Image" class="control-laber">Ảnh</label>
-                                    <input asp-for="Image" class="form-control" />
-                                    <span asp-validation-for="Image" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Description" class="control-laber">Mô tả</label>
+                                    <label asp-for="Description" class="control-lable">Mô tả</label>
                                     <input asp-for="Description" class="form-control" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Detail" class="control-laber">Chi tiết </label>
+                                    <label asp-for="Detail" class="control-lable">Chi tiết </label>
                                     <input asp-for="Detail" class="form-control" />
                                     <span asp-validation-for="Detail" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Price"  class="control-laber">Giá</label>
+                                    <label asp-for="Price" class="control-lable">Giá</label>
                                     <input asp-for="Price" class="form-control" />
                                     <span asp-validation-for="Price" class="text-danger"></span>
+
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="PriceSale" class="control-laber">Giảm Giá</label>
+                                    <label asp-for="PriceSale" class="control-lable">Giảm giá</label>
                                     <input asp-for="PriceSale" class="form-control" />
                                     <span asp-validation-for="PriceSale" class="text-danger"></span>
-                                </div>
-                             
-                                <div class="form-group">
-                                    <label asp-for="CategoryProductId" class="control-laber">Danh mục </label>
-                                    <select asp-for="CategoryProductId" class="form-control" asp-items="ViewBag.CategoryProductId" >
-                                    <option value="0" selected>--[Chọn danh mục]--</option>
-                                    </select>
-                                </div>
 
-                                <div class="form-group">
-                                    <label asp-for="Image" class="control-laber">Ảnh</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button type="button"  class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
-                                        </div>
-                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button">
-                                    </div>
-                                   
                                 </div>
-                               </div>
                                 
-                                <!-- /btn-group->                               
+                                 <div class="form-group form-check">
+                                   <label class="form-check-label" for="InActive">
+                                     <input type="checkbox" id="IsActive" Name="IsActive"/>Hiển thị
+                                  </label>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Thêm mới" class="btn btn-primary" />
+                                </div>
+                            </div>
                             <!-- /.card-body -->
                         </form>
                     </div>
+                    <!-- /.card -->
+                    <!-- general form elements -->
+                    <!-- /.card -->
+                    <!-- Input addon -->
+                    <!-- /.card -->
+                    <!-- Horizontal Form -->
+                    <!-- /.card -->
 
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
-
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<h1>Create</h1>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
 }
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -62,7 +61,7 @@
                                             <td>
                                                 @Html.DisplayFor(ModelItem => item.CategoryProduct.Title)
                                             </td>
-                                            <td><img src="@Html.DisplayFor(modelItem => item.Image)" width="50" hight="50"></img></td>
+                                            <td><img src="@Html.DisplayFor(modelItem => item.Image)" width="50" hight="50" /></td>
                                             <td>@Html.DisplayFor(ModelItem => item.Price)</td>
                                             <td>@Html.DisplayFor(ModelItem => item.PriceSale)</td>
                                             <td>@Html.DisplayFor(ModelItem => item.Quantity)</td>
@@ -71,9 +70,9 @@
                                             <td>@Html.DisplayFor(ModelItem => item.Star)</td>
                                             <td>@Html.DisplayFor(ModelItem => item.IsActive)</td>
                                             <td>
-                                                <a class="btn btn-primary rounded" a asp-action="Edit" asp-route-id="@item-MenuId" class="btn btn-primary">Sửa</a>
-                                                <a class="btn btn-primary rounded" a asp-action="Details" asp-route-id="@item-MenuId" class="btn btn-primary">Chi tiết </a>
-                                                <a class="btn btn-primary rounded" a asp-action="delete" asp-route-id="@item-MenuId" class="btn btn-primary">Xóa</a>
+                                                <a a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-primary">Sửa</a>
+                                                <a a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info">Chi tiết </a>
+                                                <a a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger">Xóa</a>
                                             </td>
                                         </tr>
 
@@ -224,4 +223,3 @@
 }
     </tbody>
 </table>
-

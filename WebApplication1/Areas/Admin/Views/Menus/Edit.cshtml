@@ -4,6 +4,7 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
 }
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -36,42 +37,41 @@
                         <!-- /.card-header -->
                         <!-- form start -->
                         <form asp-action="Edit">
-                            <input type="hidden" asp-for="MenuId" />
+                            <input type="hidden" asp-for="MenuId"/>
                             <div class="card-body">
-                                <div asp-validation-summary="ModelOnly class=" text-danger></div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <label asp-for="Title" class="control-laber">Tiêu đề </label>
+                                    <label asp-for="Title" class="control-label">Tiêu đề</label>
                                     <input asp-for="Title" class="form-control" />
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Alias" class="control-laber">Alias</label>
-                                    <input asp-for="Alias" class="form-control" />
-                                    <span asp-validation-for="Alias" class="text-danger"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label asp-for="Description" class="control-laber">Mô tả</label>
+                                    <label asp-for="Description" class="control-label"></label>
                                     <input asp-for="Description" class="form-control" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Levels" class="control-laber">Mức</label>
+                                    <label asp-for="Levels" class="control-label">Mức</label>
                                     <input asp-for="Levels" class="form-control" />
                                     <span asp-validation-for="Levels" class="text-danger"></span>
+
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="ParenId" class="control-laber">Menu cha</label>
-                                    <input asp-for="ParenId" class="form-control" />
-                                    <span asp-validation-for="PanrenId" class="text-danger"></span>
+                                    <label asp-for="ParentId" class="control-label">Menu cha</label>
+                                    <input asp-for="ParentId" class="form-control" />
+                                    <span asp-validation-for="ParentId" class="text-danger"></span>
+
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Position" class="control-laber">Vị trí</label>
+                                    <label asp-for="Position" class="control-label">Vị trí</label>
                                     <input asp-for="Position" class="form-control" />
                                     <span asp-validation-for="Position" class="text-danger"></span>
+
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" asp-for="IsActive" id="IsActive" />
-                                    <label class="form-check-label" for="IsActive">Hiển thị</label>
+                                    <label class="form-check-label" for="InActive">
+                                    <input type="checkbox" id="IsActive" Name="IsActive"/>Hiển thị
+                                  </label>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Sửa" class="btn btn-primary" />
@@ -82,86 +82,23 @@
                     </div>
                     <!-- /.card -->
                     <!-- general form elements -->
-                    <!--/.col (left) -->
-                    <!-- right column -->
-                    <!--/.col (right) -->
-                </div>
+                    <!-- /.card -->
+                    <!-- Input addon -->
+                    <!-- /.card -->
+                    <!-- Horizontal Form -->
+                    <!-- /.card -->
 
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+                </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
-<h1>Create</h1>
 
-<h4>TblMenu</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alias" class="control-label"></label>
-                <input asp-for="Alias" class="form-control" />
-                <span asp-validation-for="Alias" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Levels" class="control-label"></label>
-                <input asp-for="Levels" class="form-control" />
-                <span asp-validation-for="Levels" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParentId" class="control-label"></label>
-                <input asp-for="ParentId" class="form-control" />
-                <span asp-validation-for="ParentId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Position" class="control-label"></label>
-                <input asp-for="Position" class="form-control" />
-                <span asp-validation-for="Position" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedDate" class="control-label"></label>
-                <input asp-for="ModifiedDate" class="form-control" />
-                <span asp-validation-for="ModifiedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedBy" class="control-label"></label>
-                <input asp-for="ModifiedBy" class="form-control" />
-                <span asp-validation-for="ModifiedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsActive" class="control-label"></label>
-                <input asp-for="IsActive" class="form-control" />
-                <span asp-validation-for="IsActive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
 <div>
     <a asp-action="Index">Back to List</a>

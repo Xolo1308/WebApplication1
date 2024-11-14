@@ -98,9 +98,6 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 try
                 {
-
-                    tblMenu.Alias = WebApplication1.Utilities.Function.TitleSlugGenerationAlias(tblMenu.Title);
-
                     _context.Update(tblMenu);
                     await _context.SaveChangesAsync();
                 }

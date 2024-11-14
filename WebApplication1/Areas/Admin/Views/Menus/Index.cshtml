@@ -4,85 +4,80 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
 }
-<div class="content-wrapper">
+
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Quan lý menu</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Simple Tables</li>                                                                                                                                                                       
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Quản lý Menu</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Simple Tables</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
     </section>
 
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title"><a asp-action="Create">Them moi</a></h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>STT</th>
-                                        <th>Tieu de </th>
-                                        <th>Alias</th>
-                                        <th>Cap</th>
-                                        <th>Vi tri </th>
-                                        <th>Hien thi</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @{
-                                        int i = 1;
-                                    }
-                                    @foreach(var item in Model)
-                                    {
-                                        <tr>
-                                            <td>@(i++)</td>
-                                            <td>@Html.DisplayFor(ModelItem => item.Title)</td>
-                                            <td>
-                                                @Html.DisplayFor(ModelItem => item.Alias)
-                                            </td>
-                                            <td>@Html.DisplayFor(ModelItem => item.Levels)</td>
-                                            <td>@Html.DisplayFor(ModelItem => item.Position)</td>
-                                            <td>@Html.DisplayFor(ModelItem => item.IsActive)</td>
-                                            <td>
-                                                <a class="btn btn-primary rounded" a asp-action="Edit" asp-route-id="@item-MenuId" class="btn btn-primary">Sửa</a>
-                                                <a class="btn btn-primary rounded" a asp-action="Details" asp-route-id="@item-MenuId" class="btn btn-primary">Chi tiết </a>
-                                                <a class="btn btn-primary rounded" a asp-action="delete" asp-route-id="@item-MenuId" class="btn btn-primary">Xóa</a>
-                                            </td>
-                                        </tr>
-                                       
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    <!-- /.card -->                 
-                </div>
-                <!-- /.col -->              
-            </div>
-            <!-- /.row -->         
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-        </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title"><a asp-action="Create">Thêm mới</a></h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                      <th>STT</th>
+                      <th>Tiêu đề </th>
+                       <th>Alias</th>
+                       <th>Cấp</th>
+                       <th>Vị trí </th>
+                       <th>Hiển thị</th>
+                       <th></th>
+                       </tr>
+                  </thead>
+                  <tbody>
+                    @{
+                         int i = 1;
+                     }
+                     @foreach (var item in Model )
+                     {               
+                    <tr>
+                         <td>@(i++)</td>
+                         <td>@Html.DisplayFor(ModelItem => item.Title)</td>
+                         <td>@Html.DisplayFor(ModelItem => item.Alias)</td>
+                         <td>@Html.DisplayFor(ModelItem => item.Levels)</td>
+                         <td>@Html.DisplayFor(ModelItem => item.Position)</td>
+                         <td>@Html.DisplayFor(ModelItem => item.IsActive)</td>
+                         <td>
+                            <a  a asp-action="Edit" asp-route-id="@item.MenuId" class="btn btn-primary">Sửa</a>
+                            <a  a asp-action="Details" asp-route-id="@item.MenuId" class="btn btn-info">Chi tiết </a>
+                            <a  a asp-action="Delete" asp-route-id="@item.MenuId" class="btn btn-danger">Xóa</a>
+                          </td>
+                    </tr>
+                     }
+                  </tbody>
+                </table>    
+              </div>
+             </div>
+           </div>
+          </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-</div>
+  </div>
+
 <h1>Index</h1>
 
 <p>
@@ -164,9 +159,9 @@
                 @Html.DisplayFor(modelItem => item.IsActive)
             </td>
             <td>
-                <a class="btn btn-primary rounded" asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
-                    <a class="btn btn-danger rounded" asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
-                <a class="btn btn-primary rounded" asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.MenuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MenuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MenuId">Delete</a>
             </td>
         </tr>
 }

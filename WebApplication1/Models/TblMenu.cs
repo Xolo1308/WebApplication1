@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication1.Models;
 
 public partial class TblMenu
 {
+    
     public int MenuId { get; set; }
 
     public string? Title { get; set; }

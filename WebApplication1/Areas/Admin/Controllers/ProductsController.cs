@@ -48,6 +48,7 @@ namespace WebApplication1.Areas.Admin.Controllers
         // GET: Admin/Products/Create
         public IActionResult Create()
         {
+                
             ViewData["CategoryProductId"] = new SelectList(_context.TblProductCategories, "CategoryProductId", "Title");
             return View();
         }
@@ -83,7 +84,8 @@ namespace WebApplication1.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryProductId"] = new SelectList(_context.TblProductCategories, "CategoryProductId", "Title", tblProduct.CategoryProductId);
+            ViewData["CategoryProductId"] = new 
+            SelectList(_context.TblProductCategories, "CategoryProductId","Title", tblProduct.CategoryProductId);
             return View(tblProduct);
         }
 

@@ -4,14 +4,13 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
 }
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Sửa Sản Phẩm</h1>
+                    <h1>Sửa SP</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -32,87 +31,92 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Sửa sản phẩm </h3>
+                            <h3 class="card-title">Sửa SP</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form asp-action="Create">
+                        <form asp-action="Edit">
+                            <input type="hidden" asp-for="ProductId"/>
                             <div class="card-body">
-                                <div asp-validation-summary="ModelOnly class=" text-danger></div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                 <div class="form-group">
-                                    <label asp-for="Title" class="control-laber">Tiêu đề </label>
+                                    <label asp-for="Title" class="control-label">Tiêu đề</label>
                                     <input asp-for="Title" class="form-control" />
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Alias" class="control-laber">Alias</label>
+                                    <label asp-for="Alias" class="control-label"></label>
                                     <input asp-for="Alias" class="form-control" />
                                     <span asp-validation-for="Alias" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="CategoryId" class="control-laber">Danh mục</label>
-                                    <input asp-for="CategoryId" class="form-control" />
-                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                    <label asp-for="CategoryProductId" class="control-label">Danh mục </label>
+                                    <select asp-for="CategoryProductId" class="form-control" asp-items="ViewBag.CategoryProductId">
+                                        <option value="0" selected>--[Chọn danh mục]--</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Image" class="control-laber">Ảnh</label>
-                                    <input asp-for="Image" class="form-control" />
-                                    <span asp-validation-for="Image" class="text-danger"></span>
+                                <div class=form-group>
+                                    <label asp-for="Image" class="control-label">Ảnh</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
+                                            <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button" />
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label asp-for="Description" class="control-laber">Mô tả</label>
+                                    <label asp-for="Description" class="control-label">Mô tả</label>
                                     <input asp-for="Description" class="form-control" />
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Detail" class="control-laber">Chi tiết </label>
+                                    <label asp-for="Detail" class="control-label">Chi tiết </label>
                                     <input asp-for="Detail" class="form-control" />
                                     <span asp-validation-for="Detail" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="Price" class="control-laber">Giá</label>
+                                    <label asp-for="Price" class="control-label">Giá</label>
                                     <input asp-for="Price" class="form-control" />
                                     <span asp-validation-for="Price" class="text-danger"></span>
+
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="PriceSale" class="control-laber">Giảm Giá</label>
+                                    <label asp-for="PriceSale" class="control-label">Giảm giá</label>
                                     <input asp-for="PriceSale" class="form-control" />
                                     <span asp-validation-for="PriceSale" class="text-danger"></span>
+
                                 </div>
 
+                                <div class="form-group form-check">
+                                    <label class="form-check-label" for="InActive">
+                                        <input type="checkbox" id="IsActive" Name="IsActive" />Hiển thị
+                                    </label>
+                                </div>
                                 <div class="form-group">
-                                    <label asp-for="CategoryProductId" class="control-laber">Danh mục </label>
-                                    <select asp-for="CategoryProductId" class="form-control" asp-items="ViewBag.CategoryProductId">
-                                        <option value="0" selected>--[Chọn danh mục]--</option>
-                                    </select>
-
+                                    <input type="submit" value="Sửa" class="btn btn-primary" />
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Image" class="control-laber">Ảnh</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
-                                        </div>
-                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button">
-                                    </div>
-
-                                </div>
-                                </div>
-                                
-                                <!-- /btn-group->
-                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card-body -->
                         </form>
                     </div>
+                    <!-- /.card -->
+                    <!-- general form elements -->
+                    <!-- /.card -->
+                    <!-- Input addon -->
+                    <!-- /.card -->
+                    <!-- Horizontal Form -->
+                    <!-- /.card -->
 
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
+                <!--/.col (left) -->
+                <!-- right column -->
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
