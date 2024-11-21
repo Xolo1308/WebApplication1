@@ -24,6 +24,12 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\files\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\admin\lib\lib\elFinder\files\.trash\.gitkeep" />
+    <None Include="wwwroot\Content\admin\lib\lib\elFinder\php\.tmp\.htaccess" />
   </ItemGroup>
 
   <ItemGroup>

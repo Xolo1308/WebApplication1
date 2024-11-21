@@ -35,7 +35,7 @@ namespace WebApplication1.Controllers
             ViewBag.productReView = _context.TblProductReviews
                     .Where(i => i.ProductId == id && (bool)i.IsActive).ToList();
             ViewBag.productRelated = _context.TblProducts
-            .Where(predicate: i => i.ProductId != id && i.CategoryProductId == product.CategoryProductId).OrderByDescending(i => i.ProductId).Take(5).ToList();
+            .Where(predicate: i => i.ProductId != id && i.CategoryProductId == product.CategoryProductId).OrderByDescending(i => i.ProductId).Take(10).ToList();
             return View(product);
         }
     }

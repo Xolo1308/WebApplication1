@@ -19,8 +19,8 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.productCategories = _context.TblProductCategories.ToList();
-            ViewBag.productNew = _context.TblProducts.Where(m => (bool)m.IsNew).ToList();
+                ViewBag.productCategories = _context.TblProductCategories.ToList();
+                ViewBag.productNew = _context.TblProducts.Where(m => (bool)m.IsNew).ToList();
             return View();
         }
 

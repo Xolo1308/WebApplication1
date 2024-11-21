@@ -54,11 +54,11 @@
                      {               
                     <tr>
                          <td>@(i++)</td>
-                         <td>@Html.DisplayFor(ModelItem => item.Title)</td>
-                         <td>@Html.DisplayFor(ModelItem => item.Alias)</td>
-                         <td>@Html.DisplayFor(ModelItem => item.Levels)</td>
-                         <td>@Html.DisplayFor(ModelItem => item.Position)</td>
-                         <td>@Html.DisplayFor(ModelItem => item.IsActive)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Alias)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Levels)</td>
+                         <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                         <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
                          <td>
                             <a  a asp-action="Edit" asp-route-id="@item.MenuId" class="btn btn-primary">Sửa</a>
                             <a  a asp-action="Details" asp-route-id="@item.MenuId" class="btn btn-info">Chi tiết </a>
