@@ -11,7 +11,7 @@ namespace WebApplication1.Areas.Admin.Controllers
     public class FileSystemController : Controller
     {
         IWebHostEnvironment _env;
-        public FileSystemController(IWebHostEnvironment env) => _env = env;
+        public FileSystemController(IWebHostEnvironment env) => _env = env; 
 
         // Url để client-side kết nối đến backend
         // /el-finder-file-system/connector
@@ -39,6 +39,7 @@ namespace WebApplication1.Areas.Admin.Controllers
             var connector = GetConnector();
             return await connector.GetThumbnailAsync(HttpContext.Request, HttpContext.Response, hash);
         }
+
         private Connector GetConnector()
         {
             // Thư mục gốc lưu trữ là wwwwroot/files (đảm bảo có tạo thư mục này)

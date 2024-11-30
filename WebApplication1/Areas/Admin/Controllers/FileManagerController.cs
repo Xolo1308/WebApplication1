@@ -2,6 +2,7 @@
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
+   
     public class FileManagerController : Controller
     {
         [Area("Admin")]

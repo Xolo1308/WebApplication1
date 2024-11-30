@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Areas.Admin.Models;
 
 namespace WebApplication1.Models;
 
@@ -14,8 +15,6 @@ public partial class HarmicContext : DbContext
         : base(options)
     {
     }
-
-    public virtual DbSet<Admin> Admins { get; set; }
 
     public virtual DbSet<TbRole> TbRoles { get; set; }
 
@@ -48,7 +47,8 @@ public partial class HarmicContext : DbContext
     public virtual DbSet<TblProductReview> TblProductReviews { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
-
+    
+    public virtual DbSet<AdminUser> AdminUsers { get; set; }
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,7 +59,7 @@ public partial class HarmicContext : DbContext
                 .HasNoKey()
                 .ToTable("Admin");
 
-            entity.Property(e => e.Admin1)
+            entity.Property(e => e.UserId)
                 .HasMaxLength(50)
                 .HasColumnName("Admin");
             entity.Property(e => e.Password).HasMaxLength(50);

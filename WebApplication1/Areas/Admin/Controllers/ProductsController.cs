@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models;
+using WebApplication1.Utilities;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
@@ -18,10 +19,13 @@ namespace WebApplication1.Areas.Admin.Controllers
         {
             _context = context;
         }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
         // GET: Admin/Products
         public async Task<IActionResult> Index()
         {
+            if (!Function.IsLogin())
+                return RedirectToAction("Index", "Login");
+
             var harmicContext = _context.TblProducts.Include(t => t.CategoryProduct);
             return View(await harmicContext.ToListAsync());
         }

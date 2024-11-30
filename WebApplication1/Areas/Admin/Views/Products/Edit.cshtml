@@ -60,8 +60,9 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <button type="button" class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
-                                            <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button" />
+                                           
                                         </div>
+                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button-addon2" />
                                     </div>
                                 </div>
 
@@ -72,7 +73,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Detail" class="control-label">Chi tiết </label>
-                                    <input asp-for="Detail" class="form-control" />
+                                  
+                                    <textarea asp-for="Detail" class="form-control" ></textarea>
                                     <span asp-validation-for="Detail" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -118,6 +120,10 @@
     </section>
     <!-- /.content -->
 </div>
+@{
+    var summerNote = new WebApplication1.Areas.Admin.Models.SummerNote("#Detail");
+    <partial name="_SummerNote" model="summerNote" />
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -61,7 +61,7 @@
                                             <button type="button" class="btn btn-sunccess" onclick="openDialog()">Choose a picture</button>
                                             
                                         </div>
-                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button" />
+                                        <input type="text" class="form-control" id="file_input" asp-for="Image" aria-describedby="button-addon2" />
                                     </div>
                                 </div>
 
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="Detail" class="control-lable">Chi tiết </label>
-                                    <input asp-for="Detail" class="form-control" />
+                                    <textarea asp-for="Detail" class="form-control" ></textarea>
                                     <span asp-validation-for="Detail" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -108,6 +108,7 @@
                                         <input type="submit" value="Thêm mới" class="btn btn-primary" />
                                     </div>
                                 </div>
+                                </div>
                             <!-- /.card-body -->
                         </form>
                     </div>
@@ -129,7 +130,10 @@
     </section>
     <!-- /.content -->
 </div>
-<h1>Create</h1>
+@{
+    var summerNote = new WebApplication1.Areas.Admin.Models.SummerNote("#Detail");
+    <partial name = "_SummerNote" model="summerNote" />
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

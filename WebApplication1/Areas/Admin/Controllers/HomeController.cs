@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Utilities;
 
 namespace WebApplication1.Areas.Admin.Controllers
 {
@@ -14,7 +15,19 @@ namespace WebApplication1.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
+            if(!Function.IsLogin())
+                return RedirectToAction("Index","Login");
             return View();
+        }
+        public IActionResult Logout()
+        {
+            Function._UserId = 0;
+            Function._UserName = string.Empty;
+            Function._Email = string.Empty;
+            Function._Message = string.Empty;
+            Function._MessageEmail = string.Empty;
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }
